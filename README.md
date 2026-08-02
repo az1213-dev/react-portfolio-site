@@ -50,7 +50,7 @@ src/
 ### Installation
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/az1213-dev/react-portfolio-site
 cd personal-portfolio
 npm install
 ```

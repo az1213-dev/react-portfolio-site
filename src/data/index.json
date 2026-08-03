@@ -1,0 +1,37 @@
+{
+    "skills": [
+        {
+            "id": "1",
+            "src": "./img/frontend.png",
+            "title": "Front-End Development",
+            "description": "Building responsive, interactive interfaces using HTML5, CSS3, JavaScript, and React."
+        },
+        {
+            "id": "2",
+            "src": "./img/languages.png",
+            "title": "Programming Languages",
+            "description": "Proficient in JavaScript, Python, and Lua, with working knowledge of Java and Node.js."
+        },
+        {
+            "id": "3",
+            "src": "./img/tools.png",
+            "title": "Tools & Platforms",
+            "description": "Version control with Git and GitHub, development in VS Code, and daily use of Linux/Unix, PowerShell, and Slack for collaboration."
+        },
+        {
+            "id": "4",
+            "src": "./img/networking.png",
+            "title": "Networking & Systems",
+            "description": "Foundational knowledge of network administration and Cisco/CCNA principles, with hands-on shell scripting experience."
+        }
+    ],
+    "portfolio": [
+        {
+            "id": "1",
+            "src": "./img/desktop-cleaner.png",
+            "title": "Desktop Cleaner",
+            "description": "A Python tool that automatically scans a directory and organizes files into folders by type, helping keep a cluttered desktop clean and easy to navigate.",
+            "link": "github.com/az1213-dev/desktop-cleaner"
+        }
+    ]
+}

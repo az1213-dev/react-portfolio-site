@@ -1,12 +1,19 @@
 import { useState } from "react";
 
-const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT;
+const FORMSPREE_ENDPOINT = process.env.APP_FORMSPREE_ENDPOINT;
 
 export default function ContactMe() {
     const [status, setStatus] = useState("idle"); // idle | submitting | success | error
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!FORMSPREE_ENDPOINT) {
+            console.error("Missing APP_FORMSPREE_ENDPOINT environment variable.");
+            setStatus("error");
+            return;
+        }
+
         setStatus("submitting");
 
         const form = e.target;

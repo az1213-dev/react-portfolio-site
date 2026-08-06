@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xoeaaaav";
+const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT;
 
 export default function ContactMe() {
     const [status, setStatus] = useState("idle"); // idle | submitting | success | error

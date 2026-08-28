@@ -20,7 +20,7 @@ p {
 	--primary: #006B6A;
 	--heading-color: #282938;
 	--bg-shade: #f5fcff;
-	--github: #E4572E;
+	--github: #24292e;
 	--darkblue: #1c1e53;
 	--black: #000000;
 	--white: #ffffff;
@@ -67,19 +67,21 @@ p {
 }
 .btn-github {
 	color: var(--white);
-	background: linear-gradient(135deg, #E4572E 0%, #F2994A 100%);
-	border: none;
+	background: #24292e;
+	border: 1px solid #24292e;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.95);
-	gap: 16px;
-	transition: background 0.2s ease, color 0.2s ease;
+	box-shadow: 0 2px 4px 0 rgba(16, 24, 40, 0.15);
+	gap: 12px;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-github:hover {
-	color: var(--github);
+	color: #24292e;
 	background: var(--white);
+	border-color: #24292e;
+	box-shadow: 0 4px 12px 0 rgba(16, 24, 40, 0.2);
 }
 /* Global CSS Ends */
 /* Main Headings */

@@ -8,3 +8,11 @@ if (typeof window !== "undefined") {
   window.scrollTo = jest.fn();
 }
 
+jest.mock(
+  "@vercel/analytics/react",
+  () => ({
+    Analytics: () => null,
+  }),
+  { virtual: true }
+);
+

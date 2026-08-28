@@ -8,6 +8,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsOfService from "./Pages/TermsOfService";
 import NotFound from "./Pages/NotFound";
 import ScrollToTop from "./Components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      <Analytics />
     </div>
   );
 }

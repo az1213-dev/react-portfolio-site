@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const FORMSPREE_ENDPOINT = process.env.APP_FORMSPREE_ENDPOINT;
+const FORMSPREE_ENDPOINT =
+    process.env.REACT_APP_FORMSPREE_ENDPOINT ||
+    process.env.APP_FORMSPREE_ENDPOINT;
 
 export default function ContactMe() {
     const [status, setStatus] = useState("idle"); // idle | submitting | success | error
@@ -9,7 +11,7 @@ export default function ContactMe() {
         e.preventDefault();
 
         if (!FORMSPREE_ENDPOINT) {
-            console.error("Missing APP_FORMSPREE_ENDPOINT environment variable.");
+            console.error("Missing REACT_APP_FORMSPREE_ENDPOINT environment variable.");
             setStatus("error");
             return;
         }
@@ -18,6 +20,13 @@ export default function ContactMe() {
 
         const form = e.target;
         const formData = new FormData(form);
+
+        // Anti-spam honeypot check: if filled, abort gracefully
+        if (formData.get("_gotcha")) {
+            setStatus("success");
+            form.reset();
+            return;
+        }
 
         try {
             const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -49,6 +58,14 @@ export default function ContactMe() {
         </p>
         </div>
         <form className="contact--form--container" onSubmit={handleSubmit}>
+        {/* Anti-spam honeypot field (hidden from real users) */}
+        <input
+            type="text"
+            name="_gotcha"
+            style={{ display: "none" }}
+            tabIndex="-1"
+            autoComplete="off"
+        />
         <div className="container">
             <label htmlFor="first-name" className="contact--label">
             <span className="text-md">First Name</span>
@@ -57,6 +74,7 @@ export default function ContactMe() {
                 className="contact--input text-md"
                 name="first-name"
                 id="first-name"
+                maxLength={50}
                 required
             />
             </label>
@@ -67,6 +85,7 @@ export default function ContactMe() {
                 className="contact--input text-md"
                 name="last-name"
                 id="last-name"
+                maxLength={50}
                 required
             />
             </label>
@@ -77,6 +96,7 @@ export default function ContactMe() {
                 className="contact--input text-md"
                 name="email"
                 id="email"
+                maxLength={100}
                 required
             />
             </label>
@@ -87,6 +107,7 @@ export default function ContactMe() {
                 className="contact--input text-md"
                 name="phone-number"
                 id="phone-number"
+                maxLength={25}
                 required
             />
             </label>
@@ -108,6 +129,7 @@ export default function ContactMe() {
             id="message"
             name="message"
             rows="8"
+            maxLength={3000}
             placeholder="Type your message..."
             required
             />

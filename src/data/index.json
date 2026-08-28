@@ -28,10 +28,10 @@
     "portfolio": [
         {
             "id": "1",
-            "src": "./img/desktop-cleaner.png",
-            "title": "Desktop Cleaner",
-            "description": "A Python tool that automatically scans a directory and organizes files into folders by type, helping keep a cluttered desktop clean and easy to navigate.",
-            "link": "github.com/az1213-dev/desktop-cleaner"
+            "src": "./img/tideway.svg",
+            "title": "Tideway",
+            "description": "A real-time file organization and filesystem management app built with Python and FastAPI. Features live WebSocket activity streaming, background auto-watchers, interactive analytics, and 1-click rollback.",
+            "link": "github.com/az1213-dev/tideway"
         }
     ]
 }

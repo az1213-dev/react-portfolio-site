@@ -40,6 +40,7 @@ react-portfolio-site/
 │   │   ├── about-me.png         # About Me section illustration
 │   │   ├── desktop-cleaner.png  # Skills & tool asset
 │   │   ├── frontend.png         # Front-end skill icon
+│   │   ├── hero_img.png         # Hero section profile portrait
 │   │   ├── languages.png        # Programming languages icon
 │   │   ├── logo.png             # Portfolio brand logo
 │   │   ├── networking.png       # Networking & systems icon

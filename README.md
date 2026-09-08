@@ -11,7 +11,7 @@ This site serves as a central hub for my work, including an introduction, a brea
 - **Hero Section** — Landing introduction with a direct link to the contact form
 - **My Skills** — Standardized overview of my technical skill set across front-end development, programming languages, tools & platforms, and networking & systems
 - **About Me** — Background, experience, and custom systems illustration
-- **My Portfolio** — Featured projects (such as Tideway), each with descriptions and GitHub repo links
+- **My Portfolio** — Featured projects (such as ClutterCtrl and JSON Analyst), each with descriptions and GitHub repo links
 - **Contact** — Working contact form (powered by Formspree) so visitors can reach me directly
 - **Legal & Policy Pages** — Dedicated Privacy Policy and Terms of Service pages written in first person
 - **Interactive Footer** — Quick navigation links, social profile, legal links, and an interactive Cookie Settings preferences modal
@@ -38,13 +38,15 @@ react-portfolio-site/
 ├── public/
 │   ├── img/
 │   │   ├── about-me.png         # About Me section illustration
+│   │   ├── clutterctrl.svg      # ClutterCtrl project logo
 │   │   ├── desktop-cleaner.png  # Skills & tool asset
 │   │   ├── frontend.png         # Front-end skill icon
 │   │   ├── hero_img.png         # Hero section profile portrait
+│   │   ├── json-analyst.svg     # JSON Analyst project logo
 │   │   ├── languages.png        # Programming languages icon
-│   │   ├── logo.png             # Portfolio brand logo
+│   │   ├── logo.png             # Brand logo raster fallback (512×512)
+│   │   ├── logo.svg             # Brand logo (vector, used in nav/footer)
 │   │   ├── networking.png       # Networking & systems icon
-│   │   ├── tideway.svg          # Tideway project logo
 │   │   └── tools.png            # Tools & platforms icon
 │   ├── index.html
 │   ├── manifest.json

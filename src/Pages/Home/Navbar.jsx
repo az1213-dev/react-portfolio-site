@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { scrollToTop } from "../../utils/scroll";
 
 function Navbar() {
     const [navActive, setNavActive] = useState(false);
@@ -20,6 +21,16 @@ function Navbar() {
         closeMenu();
         if (!isHomePage) {
             navigate(`/#${sectionId}`);
+        }
+    };
+
+    // On the home page there is nothing to navigate to, so animate back up
+    // instead of letting the router re-render and snap to the top.
+    const handleLogoClick = (event) => {
+        closeMenu();
+        if (isHomePage) {
+            event.preventDefault();
+            scrollToTop();
         }
     };
 
@@ -46,8 +57,14 @@ function Navbar() {
     return (
         <nav className={`navbar ${navActive ? "active" : ""}`}>
             <div>
-                <RouterLink to="/" onClick={() => { closeMenu(); window.scrollTo(0, 0); }}>
-                    <img src="/img/logo.png" alt="Antonio Zapata Logo" />
+                <RouterLink to="/" onClick={handleLogoClick}>
+                    <img
+                        className="site--logo"
+                        src="/img/logo.svg"
+                        alt="Antonio Zapata Logo"
+                        width="75"
+                        height="75"
+                    />
                 </RouterLink>
             </div>
             <button

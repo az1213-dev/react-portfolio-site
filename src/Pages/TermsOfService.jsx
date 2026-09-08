@@ -39,7 +39,7 @@ export default function TermsOfService() {
               Unless otherwise indicated, all original text, graphic designs, UI components, brand assets, and creative content presented on this website are my property (<strong>Antonio Zapata</strong>).
             </p>
             <p>
-              Code repositories and open-source projects featured on my portfolio (such as Tideway) are licensed under their respective open-source licenses (such as the MIT License) as specified in my GitHub repositories.
+              Code repositories and open-source projects featured on my portfolio (such as ClutterCtrl) are licensed under their respective open-source licenses (such as the MIT License) as specified in my GitHub repositories.
             </p>
           </section>
 

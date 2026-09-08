@@ -187,6 +187,18 @@ h2 {
 .navbar--active-content {
 	color: var(--primary);
 }
+/* Brand mark — vector, so it stays sharp at any density */
+.site--logo {
+	width: 75px;
+	height: 75px;
+	display: block;
+}
+@media only screen and (max-width: 768px) {
+	.site--logo {
+		width: 60px;
+		height: 60px;
+	}
+}
 /* Navbar Styler Ends */
 
 /* Hero Section Style */
@@ -382,16 +394,18 @@ h2 {
 }
 .portfolio--section--container {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	flex-direction: column;
+	align-items: stretch;
 	gap: 42.6px;
 	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 .portfolio--section--img {
 	border-radius: 8px;
 	overflow: hidden;
 	background-color: var(--bg-shade);
-	flex: 1 1 45%;
+	flex: 0 0 280px;
 	height: 240px;
 	border: 1px solid rgba(0, 0, 0, 0.08);
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
@@ -407,7 +421,8 @@ h2 {
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 24px;
-	flex: 1 0 0;
+	flex: 0 0 auto;
+	width: 100%;
 	background: #fff;
 	box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.15);
 	cursor: pointer;
@@ -424,7 +439,8 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	flex: 1 1 55%;
+	flex: 1 1 auto;
+	min-width: 0;
 	background-color: var(--bg-shade);
 	border-radius: 8px;
 	padding: 24px;
@@ -443,6 +459,9 @@ h2 {
 	font-weight: 600;
 	width: fit-content;
 	color: var(--heading-color);
+}
+.portfolio--link > svg {
+	flex-shrink: 0;
 }
 .portfolio--section--card:hover path {
 	stroke: #006b6a;
@@ -669,7 +688,6 @@ input[type="checkbox"] {
 		text-align: center;
 	}
 	.about--section,
-	.portfolio--section--container,
 	.portfolio--container-box,
 	.portfolio--section--card--top,
 	.footer--link--container,
@@ -1106,4 +1124,395 @@ input[type="checkbox"] {
 	.cookie--modal-footer {
 		padding: 18px 20px;
 	}
-}
+}
+
+/* My Portfolio Responsive Starts */
+@media only screen and (max-width: 1200px) {
+	.portfolio--section {
+		padding: 70px 60px;
+		gap: 40px;
+		align-items: center;
+	}
+	.portfolio--section--container {
+		gap: 32px;
+	}
+	.portfolio--section--img {
+		flex: 0 0 auto;
+		width: 100%;
+		height: 200px;
+	}
+	.portfolio--section--card--content {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.portfolio--section {
+		padding: 70px 40px;
+	}
+	.portfolio--section--card {
+		padding: 20px;
+		gap: 20px;
+	}
+	.portfolio--section--card--top {
+		gap: 20px;
+	}
+	.portfolio--section--img {
+		height: 180px;
+	}
+	.portfolio--section--card--content {
+		padding: 20px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.portfolio--section {
+		padding: 60px 24px;
+		gap: 32px;
+	}
+	.portfolio--section--container {
+		gap: 24px;
+	}
+	.portfolio--section--card {
+		padding: 16px;
+		gap: 16px;
+	}
+	.portfolio--section--card--top {
+		gap: 16px;
+	}
+	.portfolio--section--img {
+		height: 160px;
+	}
+	.portfolio--section--card--content {
+		padding: 18px;
+		gap: 12px;
+	}
+	.portfolio--section--title {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	.portfolio--link {
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		word-break: break-word;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.portfolio--section {
+		padding: 48px 16px;
+	}
+	.portfolio--section--img {
+		height: 140px;
+	}
+	.portfolio--section--card--content {
+		padding: 16px;
+	}
+	.portfolio--section--title {
+		font-size: 20px;
+		line-height: 28px;
+	}
+	.portfolio--link {
+		font-size: 14px;
+		gap: 10px;
+	}
+}
+/* My Portfolio Responsive Ends */
+
+/* ============================================================
+   Hover & Interaction Polish
+   One shared motion language: a soft spring for anything that
+   lifts, a linear wipe for anything that draws a line.
+   ============================================================ */
+:root {
+	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+	--ease-wipe: cubic-bezier(0.65, 0, 0.35, 1);
+	--primary-glow: rgba(0, 107, 106, 0.22);
+}
+
+/* --- Buttons: lift, glow, and a sheen that sweeps across --- */
+.btn {
+	position: relative;
+	overflow: hidden;
+	--sheen: rgba(255, 255, 255, 0.5);
+	transition: background-color 0.25s ease, color 0.25s ease,
+		border-color 0.25s ease, transform 0.25s var(--ease-spring),
+		box-shadow 0.25s ease;
+}
+.btn::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -130%;
+	width: 55%;
+	height: 100%;
+	pointer-events: none;
+	transform: skewX(-20deg);
+	background: linear-gradient(
+		100deg,
+		rgba(255, 255, 255, 0) 0%,
+		var(--sheen) 50%,
+		rgba(255, 255, 255, 0) 100%
+	);
+}
+.btn:hover::after {
+	animation: btn--sheen 0.7s ease forwards;
+}
+@keyframes btn--sheen {
+	from {
+		left: -130%;
+	}
+	to {
+		left: 150%;
+	}
+}
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 24px var(--primary-glow);
+}
+.btn:active {
+	transform: translateY(-1px) scale(0.98);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+.btn:focus-visible {
+	outline: 3px solid rgba(0, 107, 106, 0.45);
+	outline-offset: 3px;
+}
+/* A submitting form button should not invite another click */
+.btn:disabled {
+	cursor: not-allowed;
+	opacity: 0.65;
+}
+.btn:disabled:hover {
+	transform: none;
+	box-shadow: none;
+}
+.btn:disabled:hover::after {
+	animation: none;
+}
+/* Buttons that invert to a white face need a dark sheen to stay visible */
+.btn-primary:hover {
+	--sheen: rgba(0, 107, 106, 0.22);
+}
+.btn-github:hover {
+	--sheen: rgba(36, 41, 46, 0.2);
+	box-shadow: 0 10px 24px rgba(16, 24, 40, 0.28);
+}
+.btn-github:focus-visible {
+	outline-color: rgba(36, 41, 46, 0.5);
+}
+
+/* --- Nav links: underline wipes in from the left --- */
+.navbar--items .navbar--content {
+	position: relative;
+	display: inline-block;
+	padding-bottom: 4px;
+	transition: color 0.25s ease;
+}
+.navbar--items .navbar--content::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--primary), #00a8a2);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s var(--ease-wipe);
+}
+.navbar--items .navbar--content:hover::after,
+.navbar--items .navbar--active-content::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+.navbar--items .navbar--content:hover {
+	color: var(--primary);
+}
+
+/* --- Brand mark --- */
+.site--logo {
+	transition: transform 0.35s var(--ease-spring), filter 0.3s ease;
+}
+a:hover > .site--logo {
+	transform: scale(1.08) rotate(-3deg);
+	filter: drop-shadow(0 6px 12px var(--primary-glow));
+}
+a:active > .site--logo {
+	transform: scale(1.02) rotate(-1deg);
+}
+
+/* --- Skills cards: spring lift, tilting icon, bar that draws in --- */
+.skills--section--card {
+	position: relative;
+	overflow: hidden;
+	border-bottom: 0;
+	padding-bottom: 36px;
+	transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+}
+.skills--section--card::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--primary), #00c2b8);
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.35s var(--ease-wipe);
+}
+.skills--section--card:hover {
+	border-bottom: 0;
+	transform: translateY(-8px);
+	box-shadow: 0 18px 36px rgba(0, 107, 106, 0.16);
+}
+.skills--section--card:hover::after {
+	transform: scaleX(1);
+}
+.skills--section--img {
+	transition: transform 0.35s var(--ease-spring), box-shadow 0.3s ease;
+}
+.skills--section--card:hover .skills--section--img {
+	transform: translateY(-4px) rotate(-4deg) scale(1.06);
+	box-shadow: 0 12px 24px var(--primary-glow);
+}
+.skills--section--title {
+	transition: color 0.25s ease;
+}
+.skills--section--card:hover .skills--section--title {
+	color: var(--primary);
+}
+
+/* --- Portfolio cards: lift, ring, zooming logo, arrow that flies out --- */
+.portfolio--section--card {
+	position: relative;
+	transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease;
+}
+.portfolio--section--card::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	border: 2px solid transparent;
+	pointer-events: none;
+	transition: border-color 0.35s ease;
+}
+.portfolio--section--card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 24px 48px rgba(0, 107, 106, 0.18);
+}
+.portfolio--section--card:hover::before {
+	border-color: rgba(0, 107, 106, 0.45);
+}
+.portfolio--section--img {
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.portfolio--section--img > img {
+	transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.portfolio--section--card:hover .portfolio--section--img {
+	border-color: rgba(0, 107, 106, 0.35);
+	box-shadow: 0 8px 20px rgba(0, 107, 106, 0.15);
+}
+.portfolio--section--card:hover .portfolio--section--img > img {
+	transform: scale(1.08);
+}
+.portfolio--section--title {
+	transition: color 0.25s ease;
+}
+.portfolio--section--card:hover .portfolio--section--title {
+	color: var(--primary);
+}
+.portfolio--link {
+	transition: color 0.25s ease, gap 0.25s ease, border-color 0.25s ease;
+}
+.portfolio--link > svg {
+	transition: transform 0.3s var(--ease-spring);
+}
+.portfolio--section--card:hover .portfolio--link {
+	color: var(--primary);
+	gap: 20px;
+}
+.portfolio--section--card:hover .portfolio--link > svg {
+	/* the icon is an up-right arrow, so send it that way */
+	transform: translate(4px, -4px);
+}
+
+/* --- Footer links and social icons --- */
+.footer--link-text {
+	position: relative;
+	display: inline-block;
+}
+.footer--link-text::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100%;
+	height: 2px;
+	border-radius: 2px;
+	background: var(--primary);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s var(--ease-wipe);
+}
+.footer--link-text:hover::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+.footer--social--icon a svg {
+	transition: transform 0.35s var(--ease-spring), color 0.25s ease;
+}
+.footer--social--icon a:hover svg {
+	transform: translateY(-4px) scale(1.15) rotate(-6deg);
+	color: var(--primary);
+}
+
+/* --- Legal pages --- */
+.legal--inline-link {
+	text-decoration: none;
+	background-image: linear-gradient(var(--primary), var(--primary));
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 100% 1px;
+	padding-bottom: 3px;
+	transition: background-size 0.3s var(--ease-wipe), color 0.25s ease;
+}
+.legal--inline-link:hover {
+	background-size: 100% 2px;
+}
+
+/* --- Cookie modal close --- */
+.cookie--modal-close {
+	transition: color 0.2s ease, transform 0.3s var(--ease-spring);
+}
+.cookie--modal-close:hover {
+	transform: rotate(90deg) scale(1.1);
+}
+
+/* Respect a reduced-motion preference: keep the color changes, drop the movement */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+	.btn:hover,
+	.btn:active,
+	a:hover > .site--logo,
+	.skills--section--card:hover,
+	.skills--section--card:hover .skills--section--img,
+	.portfolio--section--card:hover,
+	.portfolio--section--card:hover .portfolio--section--img > img,
+	.portfolio--section--card:hover .portfolio--link > svg,
+	.footer--social--icon a:hover svg,
+	.cookie--modal-close:hover {
+		transform: none;
+	}
+}
+/* Hover & Interaction Polish Ends */

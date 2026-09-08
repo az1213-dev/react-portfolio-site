@@ -28,10 +28,17 @@
     "portfolio": [
         {
             "id": "1",
-            "src": "./img/tideway.svg",
-            "title": "Tideway",
-            "description": "A real-time file organization and filesystem management app built with Python and FastAPI. Features live WebSocket activity streaming, background auto-watchers, interactive analytics, and 1-click rollback.",
-            "link": "github.com/az1213-dev/tideway"
+            "src": "./img/clutterctrl.svg",
+            "title": "ClutterCtrl",
+            "description": "A fast, zero-dependency terminal file organizer built in pure Python. Sorts cluttered folders by file type, previews every change with dry runs, watches folders in the background, and keeps per-run logs for 1-click undo.",
+            "link": "github.com/az1213-dev/clutter-ctrl"
+        },
+        {
+            "id": "2",
+            "src": "./img/json-analyst.svg",
+            "title": "JSON Analyst",
+            "description": "A 100% client-side JSON toolkit that validates, formats, repairs, compacts, and converts JSON to CSV, plus interactive chart and tree views for exploring structure. Built with zero runtime dependencies and a TypeScript analysis library, with nothing ever sent to a server.",
+            "link": "github.com/az1213-dev/json-analyst"
         }
     ]
 }

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="cc-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="cc-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="cc-grad-folder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Container -->
+  <rect x="6" y="6" width="108" height="108" rx="26" fill="url(#bg-grad)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="2" />
+
+  <!-- Terminal prompt chevron + cursor -->
+  <path d="M 22 26 L 32 33 L 22 40" stroke="url(#cc-grad-1)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)" />
+  <rect x="38" y="36" width="20" height="4.5" rx="2.25" fill="#a5f3fc" opacity="0.85" />
+
+  <!-- Cluttered files being pulled in -->
+  <rect x="72" y="22" width="12" height="12" rx="3" fill="none" stroke="#818cf8" stroke-width="2.5" opacity="0.75" transform="rotate(18 78 28)" />
+  <rect x="90" y="38" width="9" height="9" rx="2.5" fill="none" stroke="#2dd4bf" stroke-width="2.5" opacity="0.6" transform="rotate(-22 94.5 42.5)" />
+  <circle cx="66" cy="46" r="3" fill="#38bdf8" opacity="0.8" />
+
+  <!-- Sorting funnel arrow -->
+  <path d="M 60 54 L 60 66 M 54 60.5 L 60 67 L 66 60.5" stroke="url(#cc-grad-2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+  <!-- Organized folder -->
+  <path d="M 24 96 L 24 74 C 24 72 25.5 70.5 27.5 70.5 L 44 70.5 L 49.5 77 L 92.5 77 C 94.5 77 96 78.5 96 80.5 L 96 96 C 96 98 94.5 99.5 92.5 99.5 L 27.5 99.5 C 25.5 99.5 24 98 24 96 Z" fill="none" stroke="url(#cc-grad-folder)" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- Sorted category bars inside folder -->
+  <rect x="33" y="85" width="22" height="5" rx="2.5" fill="#2dd4bf" />
+  <rect x="60" y="85" width="16" height="5" rx="2.5" fill="#38bdf8" opacity="0.85" />
+  <rect x="80" y="85" width="8" height="5" rx="2.5" fill="#818cf8" opacity="0.8" />
+</svg>

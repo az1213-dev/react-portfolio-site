@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
           <section className="legal--section">
             <h2>5. Third-Party Links & Services</h2>
             <p>
-              My website contains links to external platforms such as my GitHub profile, LinkedIn, and live project demos (such as Tideway). Please be aware that I am not responsible for the privacy practices or content of external third-party sites. I encourage you to review the privacy policies of any third-party websites you visit.
+              My website contains links to external platforms such as my GitHub profile, LinkedIn, and live project demos (such as ClutterCtrl). Please be aware that I am not responsible for the privacy practices or content of external third-party sites. I encourage you to review the privacy policies of any third-party websites you visit.
             </p>
           </section>
 

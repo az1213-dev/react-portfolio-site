@@ -3,9 +3,10 @@
   "name": "Antonio Zapata | Portfolio",
   "icons": [
     {
-      "src": "img/logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "img/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
     },
     {
       "src": "img/logo.png",

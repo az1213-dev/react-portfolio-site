@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { scrollToTop } from "../../utils/scroll";
 
 function Footer() {
     const location = useLocation();
@@ -21,6 +22,15 @@ function Footer() {
         }
     };
 
+    // On the home page there is nothing to navigate to, so animate back up
+    // instead of letting the router re-render and snap to the top.
+    const handleLogoClick = (event) => {
+        if (isHomePage) {
+            event.preventDefault();
+            scrollToTop();
+        }
+    };
+
     const handleSaveCookies = () => {
         setSavedMessage(true);
         setTimeout(() => {
@@ -34,8 +44,14 @@ function Footer() {
             <footer className="footer--container">
                 <div className="footer--link--container">
                     <div>
-                        <RouterLink to="/" onClick={() => window.scrollTo(0, 0)}>
-                            <img src="/img/logo.png" alt="Antonio Zapata Logo" />
+                        <RouterLink to="/" onClick={handleLogoClick}>
+                            <img
+                                className="site--logo"
+                                src="/img/logo.svg"
+                                alt="Antonio Zapata Logo"
+                                width="75"
+                                height="75"
+                            />
                         </RouterLink>
                     </div>
                     <div className="footer--items">

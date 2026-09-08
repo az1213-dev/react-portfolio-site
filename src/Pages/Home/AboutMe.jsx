@@ -2,7 +2,7 @@ export default function AboutMe() {
     return (
     <section id="AboutMe" className="about--section">
         <div className="about--section--img">
-        <img src="/img/about-me.png" alt="Antonio Zapata IT and Development Projects Illustration" />
+        <img src="/img/about-me.svg" alt="Antonio Zapata IT and Development Projects Illustration" />
         </div>
         <div className="hero--section--content--box about--section--box">
         <div className="hero--section--content">
@@ -22,7 +22,7 @@ export default function AboutMe() {
             clear communication as much as technical skill, and I'm always
             glad to work alongside others to solve a problem well rather than
             just quickly. Looking ahead, I'm working toward a co-op or
-            internship in IT / backend development, and hope to pursue that
+            internship in IT / automation, and hope to pursue that
             path after graduating — this site is part of that process, a
             space to practice, showcase real work, and keep growing.
             </p>

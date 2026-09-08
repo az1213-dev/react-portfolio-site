@@ -21,7 +21,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Node 24 ships npm 11, which must match the npm that generated
+          # package-lock.json. postcss-load-config declares `yaml` as an
+          # optional peer dependency, and npm 10 and npm 11 disagree on whether
+          # it belongs in the lock file — so a lock written by one is rejected
+          # by `npm ci` under the other.
+          node-version: 24
           cache: 'npm'
 
       - name: Install dependencies
